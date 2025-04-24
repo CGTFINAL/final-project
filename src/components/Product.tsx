@@ -6,15 +6,18 @@ interface ProductProps {
     price: number;
 }
 
-const Product = ({img_src, name, price}:ProductProps) => {
+const Product = ({ img_src, name, price }: ProductProps) => {
     return (
         <div className={style['product-card']}>
-            <img src={img_src} />
-            <p>{name}</p>
-            <p>{price}</p>
-            
+            <div className={style['product-card__img']}>
+                <img src={img_src} />
+            </div>
+            <div className={style['product-card__content']}>
+                <p>{name}</p>
+                <p>{price}</p>
+            </div>
         </div>
     );
-}
+};
 
 export default Product;

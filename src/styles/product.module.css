@@ -1,5 +1,13 @@
-/* TODO; primarily placeholder for file structure */
+/* TODO: more CSS */
 .product-card {
     border: 2px solid lightblue;
     border-radius: 10px;
+}
+
+.product-card__img {
+
+}
+
+.product-card__content {
+
 }
