@@ -6,10 +6,10 @@ interface CountdownTimerProps {
 }
 
 interface TimeLeft {
-	days: number;
-	hours: number;
-	minutes: number;
-	seconds: number;
+	days: number | string;
+	hours: number | string;
+	minutes: number | string;
+	seconds: number | string;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
@@ -26,10 +26,10 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 		const countdownInterval = setInterval(() => {
 			const now = new Date();
 			const timeDifference = targetDateObject.getTime() - now.getTime();
-			const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-			const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-			const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+			const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+			const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+			const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000).toString().padStart(2, '0');
+			const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
 
 			if (timeDifference <= 0) {
 				clearInterval(countdownInterval);
@@ -49,7 +49,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 
 	return (
 		<div>
-			<p>{`${timeLeft.days} Days ${timeLeft.hours} Hours ${timeLeft.minutes} Minutes ${timeLeft.seconds} Seconds`}</p>
+			<p>{`${timeLeft.days}:${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}</p>
 		</div>
 	);
 };

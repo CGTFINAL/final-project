@@ -1,10 +1,6 @@
-
 const HomePage = () => {
-
-
-
     return(
-        <h1></h1>
+        <h1>Hi</h1>
     )
 }
 

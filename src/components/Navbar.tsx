@@ -1,48 +1,36 @@
 import { Link } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import style from '../styles/navbar.module.css';
 
 const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-    // const isLogin = useSelector ((state: RootState) => state.auth.isLogin);
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
-    // const handleClick = () => {
-    //     dispatch(logout());
-    //     navigate("/login");
-    // }
+    const toggleMenu = () => {
+        setIsMenuOpen(prevState => !prevState);
+        console.log("toggled");
+    };
 
-    return(
-        <nav className = "navbar">
-            <ul>
-                <li>
-                    <Link to = "/">Home</Link>
+    return (
+        <nav className={style.navbar}>
+            <button className={style.menutoggle} onClick={toggleMenu}>☰</button>
+            <ul className={isMenuOpen ? style.open : style.ul}>
+                <li className={style.li}>
+                    <Link to="/">Home</Link>
                 </li>
-                <li>
-                    <Link to = "/products">Products</Link>
+                <li className={style.li}>
+                    <Link to="/products">Products</Link>
                 </li>
-                <li>
-                    <Link to = "/upcoming">Upcoming</Link>
+                <li className={style.li}>
+                    <Link to="/upcoming">Upcoming</Link>
                 </li>
-        {/* delete the below lines */}
-                <li>
-                    <Link to = "/register" >Register</Link>
+                {/* delete the below lines */}
+                <li className={style.li}>
+                    <Link to="/register" >Register</Link>
                 </li>
-                <li>
-                    <Link to = "/login" >Login</Link>
+                <li className={style.li}>
+                    <Link to="/login" >Login</Link>
                 </li>
-
-{/* delete the above lines later into production */}
-
             </ul>
-            {/* {
-                isLogin ?
-                <button onClick = {handleClick}>Logout</button>
-                :
-                <ul>
-                    <li><Link to = "/register" >Register</Link></li>
-                    <li><Link to = "/login" >Login</Link></li>
-                </ul>
-            } */}
         </nav>
     )
 }
