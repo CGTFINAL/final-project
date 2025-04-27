@@ -1,20 +1,38 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import {
+    createContext,
+    useCallback,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 
-const AuthContext = createContext(null);
-export default AuthContext;
+interface AuthContextType {
+    isLogin: boolean;
+    login: () => void;
+    logout: () => void;
+}
 
 interface AuthProps {
     children: React.ReactElement;
 }
 
-export const AuthProvider = ({ children }:AuthProps) => {
+const AuthContext = createContext<AuthContextType>({
+    isLogin: false,
+    login: () => {},
+    logout: () => {},
+});
+export default AuthContext;
+
+export const AuthProvider = ({ children }: AuthProps) => {
     const [isLogin, setIsLogin] = useState(false);
 
     const login = useCallback(() => {
         setIsLogin(true);
     }, []);
     const logout = useCallback(() => {
-        fetch('https://web.ics.purdue.edu/~skroot/cgt-390/public/logout.php')
+        fetch(
+            'https://web.ics.purdue.edu/~skroot/cgt-390/public/final/logout.php'
+        )
             .then((response) => response.json())
             .then((data) => {
                 if (data.message) {
@@ -25,11 +43,12 @@ export const AuthProvider = ({ children }:AuthProps) => {
             })
             .catch((error) => console.log(error));
     }, []);
-    const value = useMemo(() => ({ isLogin, login, logout }), [isLogin, login, logout]);
+    const value = useMemo<AuthContextType>(
+        () => ({ isLogin, login, logout }),
+        [isLogin, login, logout]
+    );
     return (
-        <AuthContext.Provider value={{ value }}>
-            {children}
-        </AuthContext.Provider>
+        <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
     );
 };
 
