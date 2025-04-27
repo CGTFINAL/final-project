@@ -12,6 +12,7 @@ const Navbar = () => {
 
     return (
         <nav className={style.navbar}>
+            <img src = "../src/"
             <button className={style.menutoggle} onClick={toggleMenu}>☰</button>
             <ul className={isMenuOpen ? style.open : style.ul}>
                 <li className={style.li}>
@@ -23,7 +24,6 @@ const Navbar = () => {
                 <li className={style.li}>
                     <Link to="/upcoming">Upcoming</Link>
                 </li>
-                {/* delete the below lines */}
                 <li className={style.li}>
                     <Link to="/register" >Register</Link>
                 </li>
