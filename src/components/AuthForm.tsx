@@ -2,7 +2,7 @@ import style from '../styles/authform.module.css';
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
-const AuthForm = ({ isRegisterPage = false }) => {
+const AuthForm = ({ isRegisterForm = false }) => {
 
     const { login } = useAuth();
 
@@ -20,14 +20,14 @@ const AuthForm = ({ isRegisterPage = false }) => {
         setSubmitting(true);
 
         const formData = new FormData(e.currentTarget);
-        formData.append('action', isRegisterPage ? 'register' : 'login');
-        if (isRegisterPage) formData.append('email', data.email.trim());
+        formData.append('action', isRegisterForm ? 'register' : 'login');
+        if (isRegisterForm) formData.append('email', data.email.trim());
         formData.append('username', data.username.trim());
         formData.append('password', data.password.trim());
 
         try {
             const response = await fetch(
-                'https://web.ics.purdue.edu/~skroot/cgt-390/public/auth.php',
+                'https://web.ics.purdue.edu/~skroot/cgt-390/public/final/auth.php',
                 {
                     method: 'POST',
                     body: formData,
@@ -52,7 +52,7 @@ const AuthForm = ({ isRegisterPage = false }) => {
             className={`${style['login-form']}`}
             onSubmit={handleSubmit}
         >
-            {isRegisterPage && (
+            {isRegisterForm && (
                 <input
                     type='email'
                     name='email'
@@ -62,7 +62,7 @@ const AuthForm = ({ isRegisterPage = false }) => {
                     onChange={handleChange}
                 ></input>
             )}
-            {isRegisterPage && <hr />}
+            {isRegisterForm && <hr />}
             <input
                 type='text'
                 name='username'
@@ -89,7 +89,7 @@ const AuthForm = ({ isRegisterPage = false }) => {
                     submitting ||
                     data.username.trim() === '' ||
                     data.password.trim() === '' ||
-                    (isRegisterPage && data.email.trim() === '')
+                    (isRegisterForm && data.email.trim() === '')
                 }
             >
                 Submit
