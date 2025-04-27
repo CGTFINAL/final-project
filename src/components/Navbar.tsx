@@ -12,17 +12,17 @@ const Navbar = () => {
 
     return (
         <nav className={style.navbar}>
-            <img src = "../src/"
+            <img src = "./images/react.png" alt = "logo" className = {style.logo} />
             <button className={style.menutoggle} onClick={toggleMenu}>☰</button>
             <ul className={isMenuOpen ? style.open : style.ul}>
                 <li className={style.li}>
                     <Link to="/">Home</Link>
                 </li>
                 <li className={style.li}>
-                    <Link to="/products">Products</Link>
+                    <Link to="/Product">Products</Link>
                 </li>
                 <li className={style.li}>
-                    <Link to="/upcoming">Upcoming</Link>
+                    <Link to="/Newdrop">New Drop</Link>
                 </li>
                 <li className={style.li}>
                     <Link to="/register" >Register</Link>

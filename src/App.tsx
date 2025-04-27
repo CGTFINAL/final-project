@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import NewDrop from './pages/NewDrop';
-// import ProductPage from './pages/ProductPage';
+import ProductPage from './pages/ProductPage';
 function App() {
 
   return (
@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/NewDrop" element={<NewDrop />} />
             <Route path="*" element={<NotFound />} />
-            {/* <Route path="/Product" element={<Product />} /> */}
+            <Route path="/Product" element={<ProductPage />} />
           </Routes>
         </main>
       </HashRouter>
@@ -26,4 +26,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -1,4 +1,5 @@
 import style from '../styles/product.module.css';
+import products from '../products.json';
 
 interface ProductProps {
     img_src: string;
@@ -19,5 +20,7 @@ const Product = ({ img_src, name, price }: ProductProps) => {
         </div>
     );
 };
+
+
 
 export default Product;
