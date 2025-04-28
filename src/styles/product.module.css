@@ -12,6 +12,11 @@
     display: block;
 }
 
+.product-card__img img {
+    max-width: 200px;
+    height: auto;
+}
+
 .product-card__content {
     padding: 10px;
     text-align: center;
