@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
         <nav className={style.navbar}>
-            <img src = "./images/react.png" alt = "logo" className = {style.logo} />
+            <img src = "./assets/react.png" alt = "logo" className = {style.logo} />
             <button className={style.menutoggle} onClick={toggleMenu}>☰</button>
             <ul className={isMenuOpen ? style.open : style.ul}>
                 <li className={style.li}>

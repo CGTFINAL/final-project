@@ -1,0 +1,28 @@
+.productPage {
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.productList {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .productList {
+        gap: 15px; /* Reduce gap for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem; /* Adjust title size on small screens */
+    }
+}

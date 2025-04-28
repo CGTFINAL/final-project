@@ -21,6 +21,4 @@ const Product = ({ img_src, name, price }: ProductProps) => {
     );
 };
 
-
-
 export default Product;
