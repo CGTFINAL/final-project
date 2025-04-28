@@ -1,31 +1,31 @@
 [
     {
-        "img_src": "/blackundies.png",
+        "img_src": "./blackundies.png",
         "name": "Black Undies",
         "price": 9.99
     },
     {
-        "img_src": "/plate.png",
+        "img_src": "./plate.png",
         "name": "React Plate",
         "price": 9.99
     },
     {
-        "img_src": "/rubikcube.png",
+        "img_src": "./rubikcube.png",
         "name": "Rubiks Cube",
         "price": 4.99
     },
     {
-        "img_src": "/toiletpaper.png",
+        "img_src": "./toiletpaper.png",
         "name": "Toilet Paper",
         "price": 2.99
     },
     {
-        "img_src": "/whitecanvas.png",
+        "img_src": "./whitecanvas.png",
         "name": "React Painting",
         "price": 29.99
     },
     {
-        "img_src": "/whiteshirt.png",
+        "img_src": "./whiteshirt.png",
         "name": "React Shirt",
         "price": 19.99
     }
