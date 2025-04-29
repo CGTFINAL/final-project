@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <nav className={style.navbar}>
             {/* <div className={style.brand}>React Attack</div> */}
-            <div className={style.logo}><img className={style.logo} src='./react.png'></img></div>
+            <Link to="/" className={style.navLink}><div className={style.logo}><img className={style.logo} src='./reactLogo.svg'></img></div></Link>
 
             <button className={style.menuToggle} onClick={toggleMenu}>
                 <span></span>
