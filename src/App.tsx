@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import NewDrop from './pages/NewDrop';
 import ProductPage from './pages/ProductPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 function App() {
 
   return (
@@ -16,9 +17,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/NewDrop" element={<NewDrop />} />
+            <Route path="/new-drop" element={<NewDrop />} />
+            <Route path="/all-products" element={<ProductPage />} />
+            <Route path="/product/:index" element={<ProductDetailPage />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/Product" element={<ProductPage />} />
           </Routes>
         </main>
       </HashRouter>
