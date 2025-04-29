@@ -116,7 +116,7 @@
 	}
 
 	.navList.open {
-		transform: translateY(60px);
+		transform: translateY(100px);
 		opacity: 1;
 		pointer-events: auto;
 	}
