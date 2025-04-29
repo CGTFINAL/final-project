@@ -1,34 +1,91 @@
-/* navbar.module.css */
+:root {
+	--primary-color: #535353;
+	--text-light: #ffffff;
+	--text-dark: #242424;
+}
+
 .navbar {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #46dcfe;
-	width: 100%;
+	right: 0;
+	background-color: var(--primary-color);
+	padding: 1rem 2rem;
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	z-index: 2;
 }
 
-.ul {
+.brand {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--text-light);
+}
+
+.navList {
 	display: flex;
 	list-style: none;
-	width: fit-content;
+	margin: 0;
+	padding: 0;
+	transition: all 0.3s ease-in-out;
+	flex-wrap: wrap;
 }
 
-.li {
-	display: block;
-	color: #242424;
-	margin-right: 50px;
+.navItem {
+	margin-left: 2rem;
 }
 
-.li a {
+.navLink {
+	color: var(--text-light);
 	text-decoration: none;
-	color: #242424;
-	font-size: 20px;
+	font-size: 1rem;
 	font-weight: 500;
+	position: relative;
+	padding: 0.5rem;
+	transition: color 0.3s ease;
+	z-index: -1;
 }
 
-.menutoggle {
+.navLink:hover {
+	color: #1071b6 !important;
+}
+
+.menuToggle {
 	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 24px;
+	height: 18px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+}
+
+.menuToggle span,
+.menuToggle::before,
+.menuToggle::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	background-color: white;
+	border-radius: 2px;
+	transition: all 0.3s ease-in-out;
+}
+
+.menuToggle span {
+	top: 7px;
+}
+
+.menuToggle::before {
+	top: 0;
+}
+
+.menuToggle::after {
+	top: 14px;
 }
 
 .logo {
@@ -36,27 +93,32 @@
     height: auto;
 }
 
-@media (max-width: 768px) {
-	.ul {
-	  display: none;
-	  flex-direction: column;
-	  position: absolute;
-	  top: 60px;
-	  right: 20px;
-	  background-color: #333;
-	  padding: 20px;
-	  border-radius: 8px;
+@media (max-width: 785px) {
+	.menuToggle {
+		display: flex !important;
 	}
-  
-	.ul.open {
-	  display: flex;
+
+	.navList {
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #1e1e1e;
+		border-radius: 0 0 10px 10px;
+		padding: 2rem 1.5rem;
+		transform: translateY(-100%) translateZ(-10px);
+		opacity: 0;
+		pointer-events: none;
 	}
-  
-	.li {
-	  margin: 10px 0;
+
+	.navList.open {
+		transform: translateY(60px);
+		opacity: 1;
+		pointer-events: auto;
 	}
-  
-	.menutoggle {
-	  display: block;
+
+	.navItem {
+		margin: 0.75rem 0;
 	}
-  }
+}

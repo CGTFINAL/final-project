@@ -6,33 +6,38 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     const toggleMenu = () => {
-        setIsMenuOpen(prevState => !prevState);
+        setIsMenuOpen(prev => !prev);
         console.log("toggled");
     };
 
     return (
         <nav className={style.navbar}>
-            <img src = "./react.png" alt = "logo" className = {style.logo} />
-            <button className={style.menutoggle} onClick={toggleMenu}>☰</button>
-            <ul className={isMenuOpen ? style.open : style.ul}>
-                <li className={style.li}>
-                    <Link to="/">Home</Link>
+            {/* <div className={style.brand}>React Attack</div> */}
+            <div className={style.logo}><img className={style.logo} src='./react.png'></img></div>
+
+            <button className={style.menuToggle} onClick={toggleMenu}>
+                <span></span>
+            </button>
+
+            <ul className={`${style.navList} ${isMenuOpen ? style.open : ''}`}>
+                <li className={style.navItem}>
+                    <Link to="/" className={style.navLink}>Home</Link>
                 </li>
-                <li className={style.li}>
-                    <Link to="/Product">Products</Link>
+                <li className={style.navItem}>
+                    <Link to="/products" className={style.navLink}>Products</Link>
                 </li>
-                <li className={style.li}>
-                    <Link to="/Newdrop">New Drop</Link>
+                <li className={style.navItem}>
+                    <Link to="/newDrop" className={style.navLink}>Upcoming</Link>
                 </li>
-                <li className={style.li}>
-                    <Link to="/register" >Register</Link>
+                <li className={style.navItem}>
+                    <Link to="/register" className={style.navLink}>Register</Link>
                 </li>
-                <li className={style.li}>
-                    <Link to="/login" >Login</Link>
+                <li className={style.navItem}>
+                    <Link to="/login" className={style.navLink}>Login</Link>
                 </li>
             </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
