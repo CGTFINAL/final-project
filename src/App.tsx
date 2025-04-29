@@ -5,6 +5,9 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
 import NewDrop from './pages/NewDrop';
 import ProductPage from './pages/ProductPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+
 function App() {
 
   return (
@@ -19,6 +22,8 @@ function App() {
             <Route path="/NewDrop" element={<NewDrop />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/Product" element={<ProductPage />} />
+            <Route path="/Login" element={<LoginPage />} />
+            <Route path="/Register" element={<RegisterPage />} />
           </Routes>
         </main>
       </HashRouter>
