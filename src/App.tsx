@@ -23,10 +23,9 @@ function App() {
             <Route path="/new-drop" element={<NewDrop />} />
             <Route path="/all-products" element={<ProductPage />} />
             <Route path="/product/:index" element={<ProductDetailPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/Product" element={<ProductPage />} />
-            <Route path="/Login" element={<LoginPage />} />
-            <Route path="/Register" element={<RegisterPage />} />
           </Routes>
         </main>
       </HashRouter>
