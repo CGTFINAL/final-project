@@ -14,7 +14,7 @@ const Product = ({ img_src, name, price }: ProductProps) => {
             </div>
             <div className={style['product-card__content']}>
                 <p>{name}</p>
-                <p>{price}</p>
+                <p>{`$${price}`}</p>
             </div>
         </div>
     );

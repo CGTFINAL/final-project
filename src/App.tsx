@@ -8,6 +8,7 @@ import ProductPage from './pages/ProductPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
+import ProductDetailPage from './pages/ProductDetailPage';
 function App() {
 
   return (
@@ -19,7 +20,9 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/NewDrop" element={<NewDrop />} />
+            <Route path="/new-drop" element={<NewDrop />} />
+            <Route path="/all-products" element={<ProductPage />} />
+            <Route path="/product/:index" element={<ProductDetailPage />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/Product" element={<ProductPage />} />
             <Route path="/Login" element={<LoginPage />} />
