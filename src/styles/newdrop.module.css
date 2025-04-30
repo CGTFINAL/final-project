@@ -1,0 +1,43 @@
+
+.newDropPage {
+    padding: 20px;
+    background-color: var(background-color);
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5 rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.clodestProduct {
+    font-size: 1.5rem;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.clodestProductImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.countdown {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .closestProductImage {
+        width: 100px; /* Smaller size for narrower screens */
+    }
+}

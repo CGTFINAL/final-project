@@ -4,11 +4,16 @@ import products from "../products.json";
 import style from "../styles/productpage.module.css";
 
 const ProductPage = () => {
+
+    const filteredProducts = products.filter(product => {
+        const releaseDate = new Date(product.release_date).getTime();
+        return releaseDate < Date.now();
+    })
     return(
         <div className = {style.productPage}>
             <h1 className = {style.title}>Products</h1>
             <div className = {style.productList}>
-                {products.map((product, index) => (
+                {filteredProducts.map((product, index) => (
                     <Link to={`/product/${index}`} key={index}>
                         <Product
                             key={index}
