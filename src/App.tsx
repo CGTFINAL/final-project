@@ -7,8 +7,9 @@ import NewDrop from './pages/NewDrop';
 import ProductPage from './pages/ProductPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-
 import ProductDetailPage from './pages/ProductDetailPage';
+import Footer from './components/Footer';
+
 function App() {
 
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Footer />
       </HashRouter>
     </>
   )
