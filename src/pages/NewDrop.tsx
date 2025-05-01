@@ -3,6 +3,7 @@ import CountdownTimer from "../components/Countdown";
 import Product from "../components/Product";
 import products from "../products.json";
 import style from "../styles/newdrop.module.css";
+import { useCart } from "../contexts/CartContext";
 
 interface Product {
     id: number;
@@ -17,6 +18,7 @@ interface Product {
 }
 
 const NewDrop: React.FC = () => {
+    const { addToCart } = useCart();
     const [upcomingProducts, setUpcomingProducts] = useState<Product[]>([]);
 	const [recentlyReleased, setRecenelyReleased] = useState<Product[]>([]);
 

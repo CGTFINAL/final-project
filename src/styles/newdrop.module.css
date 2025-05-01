@@ -21,6 +21,7 @@
 .closestProductImage {
     width: min(15vw, 350px);
     height: 150px;
+    border: 2px solid red;
     border-radius: 8px;
     margin-right: 15px;
     margin: auto;
