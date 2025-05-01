@@ -18,14 +18,24 @@ interface Product {
 
 const NewDrop: React.FC = () => {
     const [upcomingProducts, setUpcomingProducts] = useState<Product[]>([]);
+	const [recentlyReleased, setRecenelyReleased] = useState<Product[]>([]);
 
     useEffect(() => {
+		const now = Date.now();
+		const thirtyDaysAgo = now - 30 * 24 * 60 * 60 * 1000;
+
         const filteredProducts = products.filter(product => {
             const releaseTime = new Date(product.release_date).getTime();
             return releaseTime > Date.now(); // Filter for future release dates
         });
 
+		const pastProducts = products.filter(product => {
+			const releaseTime = new Date(product.release_date).getTime();
+			return releaseTime <= now && releaseTime >= thirtyDaysAgo;
+		});
+
         setUpcomingProducts(filteredProducts);
+		setRecenelyReleased(pastProducts);
     }, []);
 
     return (
@@ -57,6 +67,21 @@ const NewDrop: React.FC = () => {
                     </div>
                 ))}
             </div>
+			<div>
+				<h1 className = {style.title}>Recently Released!</h1>
+				<div className = {style.productList}>
+					{recentlyReleased.map(product =>
+						<div key = {product.id} className = {style.productCard}>
+						<Product 
+							img_src = {product.img_src}
+							name = {product.name}
+							price = {product.price}
+						/>
+				</div>
+					)}
+					
+				</div>
+			</div>
         </div>
     );
 };
