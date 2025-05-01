@@ -18,7 +18,6 @@ interface Product {
 }
 
 const NewDrop: React.FC = () => {
-    const { addToCart } = useCart();
     const [upcomingProducts, setUpcomingProducts] = useState<Product[]>([]);
 	const [recentlyReleased, setRecenelyReleased] = useState<Product[]>([]);
 
