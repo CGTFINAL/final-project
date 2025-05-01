@@ -1,3 +1,4 @@
+// CartContext.tsx
 import {
     createContext,
     useCallback,
@@ -15,8 +16,8 @@ interface CartType {
 
 interface CartContextType {
     cart: CartType[];
-    addToCart: (data: any) => void;
-    removeFromCart: (index: string) => void;
+    addToCart: (data: CartType) => void;
+    removeFromCart: (item: CartType) => void;
 }
 
 interface CartProps {
@@ -25,40 +26,36 @@ interface CartProps {
 
 const CartContext = createContext<CartContextType>({
     cart: [],
-    addToCart: (_data: any) => {},
-    removeFromCart: (_index: string) => {},
+    addToCart: (_data: CartType) => { },
+    removeFromCart: (_item: CartType) => { },
 });
 export default CartContext;
 
 export const CartProvider = ({ children }: CartProps) => {
     const [cart, setCart] = useState<CartType[]>([]);
 
-    const addToCart = useCallback((data: any /* <-- I cheated :P */) => {
-        setCart([
-            ...cart,
-            {
-                index: data.index,
-                size: data.size,
-                color: data.color,
-                qty: data.qty,
-            },
-        ]);
+    const addToCart = useCallback((data: CartType) => {
+        setCart((prev) => [...prev, data]);
     }, []);
 
-    // when the cart page gets added use this function and call it using the item's index
-    // i am now realizing this will remove all instances of a product regardless of customization
-    // to which i say for now: oh well ¯\_(ツ)_/¯   ( <--nothing more permanent than a temp solution )
-    const removeFromCart = useCallback((index: string) => {
-        setCart(cart.filter((c) => c.index !== index));
+    const removeFromCart = useCallback((itemToRemove: CartType) => {
+        setCart((prev) =>
+            prev.filter(
+                (item) =>
+                    item.index !== itemToRemove.index ||
+                    item.size !== itemToRemove.size ||
+                    item.color !== itemToRemove.color ||
+                    item.qty !== itemToRemove.qty
+            )
+        );
     }, []);
 
     const value = useMemo<CartContextType>(
         () => ({ cart, addToCart, removeFromCart }),
         [cart, addToCart, removeFromCart]
     );
-    return (
-        <CartContext.Provider value={value}>{children}</CartContext.Provider>
-    );
+
+    return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
 export const useCart = () => useContext(CartContext);

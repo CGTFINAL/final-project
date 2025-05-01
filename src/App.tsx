@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Footer from './components/Footer';
+import CartPage from './pages/CartPage';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/product/:index" element={<ProductDetailPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

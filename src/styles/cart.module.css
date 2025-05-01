@@ -1,0 +1,112 @@
+/* CartPage.module.css */
+
+.container {
+	padding: 2rem;
+	max-width: 900px;
+	margin: 0 auto;
+	background: linear-gradient(135deg, #2a2a2a, #353535);
+	/* Subtle gradient */
+	border-radius: 12px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+	font-size: 2.2rem;
+	/* Slightly bigger */
+	font-weight: 700;
+	/* Bold */
+	color: #ffffff;
+	margin-bottom: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.empty {
+	font-style: italic;
+	color: #d1d5db;
+	/* Lighter gray */
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.5rem;
+	margin-bottom: 1.2rem;
+	background-color: #484848;
+	/* Darker background */
+	border-radius: 10px;
+	border: 1px solid #e5e7eb;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	/* Softer shadow */
+}
+
+.details {
+	flex: 1;
+	padding-right: 1.5rem;
+}
+
+.details p {
+	margin: 0.5rem 0;
+	/* More breathing space */
+	font-size: 1.1rem;
+	/* Slightly larger */
+	color: #ffffff;
+}
+
+.details img {
+	max-width: 120px;
+	height: 120px;
+	border-radius: 8px;
+	object-fit: cover;
+	/* Subtle border around the image */
+}
+
+.removeButton {
+	background-color: #ef4444;
+	color: white;
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	/* Smooth transition */
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+	/* Button shadow */
+}
+
+.removeButton:hover {
+	background-color: #dc2626;
+	transform: scale(1.05);
+	/* Slight scaling effect */
+}
+
+.removeButton:active {
+	background-color: #b91c1c;
+	transform: scale(0.95);
+	/* Slight shrinking effect */
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 1.5rem;
+	}
+
+	.item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+		/* Add gap between elements in column layout */
+	}
+
+	.removeButton {
+		margin-top: 1rem;
+		width: 100%;
+		/* Make the remove button stretch full width */
+	}
+}
